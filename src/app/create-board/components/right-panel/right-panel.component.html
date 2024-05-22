@@ -8,11 +8,15 @@
 
         <div class="creation__content__text">
             <div>Colors</div>
-            <div class="creation__content__text__colors">
+            <!-- <div class="creation__content__text__colors">
                 <div class="creation__content__text__colors__color" *ngFor="let color of colors; let i = index"
                     [style.backgroundColor]="color.background" (click)="setColor(color.background, i)"
                     [class.selected]="currentColor === i"></div>
-            </div>
+            </div> -->
+            <ngx-colors ngx-colors-trigger [(ngModel)]="color" (ngModelChange)="logEvent($event, 'ngModelChange')"
+                (change)="logEvent($event, 'change')" (input)="logEvent($event, 'input')"
+                (slider)="logEvent($event, 'slider')" [colorsAnimation]="'popup'" (click)="setColor(color)">
+            </ngx-colors>
         </div>
 
         <div class="creation__content__text">

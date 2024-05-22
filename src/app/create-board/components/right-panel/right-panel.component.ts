@@ -5,12 +5,16 @@ import { SwiperContainer } from 'swiper/element';
 import { BOARDS, CLIPATH, COLORS, SHAPES, SURFBOARD_SHAPE, TEXTURES } from '../../board';
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
+import { NgxColorsModule } from 'ngx-colors';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-right-panel',
   standalone: true,
   imports: [
     CommonModule,
+    NgxColorsModule,
+    FormsModule,
   ],
   templateUrl: './right-panel.component.html',
   styleUrls: ['./right-panel.component.scss'],
@@ -25,7 +29,7 @@ export class RightPanelComponent implements AfterViewInit {
 
   public boards = BOARDS;
   public shapes = SHAPES;
-  public colors = COLORS;
+  // public colors = COLORS;
   public surfboardShape = SURFBOARD_SHAPE;
   public textures = TEXTURES;
   public clipPath = CLIPATH;
@@ -35,6 +39,10 @@ export class RightPanelComponent implements AfterViewInit {
   public img!: HTMLImageElement;
   public currentColor = 0;
   public currentTexture!: number;
+  public color = "#000000";
+  public colorIndex = 0;
+  public colors = ["#0070f3", "#00796B", "#D81B60", "#7986CB"];
+  public logs: Array<Array<any>> = [];
 
   constructor(
     @Inject(DestroyRef) private destroy: DestroyRef,
@@ -53,12 +61,24 @@ export class RightPanelComponent implements AfterViewInit {
     this.renderer.appendChild(this.creation.nativeElement, this.img);
   }
 
+  public rotateColor(): void {
+    this.colorIndex = (this.colorIndex + 1) % this.colors.length;
+    this.color = this.colors[this.colorIndex];
+  }
+
+  public logEvent(event: any, trigger: any) {
+    this.logs.unshift([this.logs.length + 1, trigger, event]);
+    console.log(this.logs);
+    this.color = this.logs[0][2];
+    const svg = this.surfboardSvg.nativeElement;
+    svg.style.fill = this.logs[0][2];
+  }
+
   public getSVG(svg: string) {
     return this._sanitizer.bypassSecurityTrustHtml(`${svg}`);
   }
 
-  public setColor(color: string, i: number) {
-    this.currentColor = i;
+  public setColor(color: string) {
     const svg = this.surfboardSvg.nativeElement;
     svg.style.fill = color;
   }
