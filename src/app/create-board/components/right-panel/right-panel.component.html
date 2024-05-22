@@ -1,5 +1,7 @@
-<div class="creation" #creation>
-    <div *ngFor="let item of surfboardShape" class="surfboard" [innerHTML]="getSVG(item.svg)" #surfboardSvg></div>
+<div class="creation">
+    <div class="surfboard" #creation>
+        <div *ngFor="let item of surfboardShape" [innerHTML]="getSVG(item.svg)" #surfboardSvg></div>
+    </div>
 
     <div class="creation__content">
         <div class="creation__content__title">Choose board details</div>
@@ -13,7 +15,6 @@
             </div>
         </div>
 
-
         <div class="creation__content__text">
             <div>Shapes</div>
             <div class="creation__content__text__shapes">
@@ -23,7 +24,6 @@
             </div>
         </div>
 
-
         <div class="creation__content__text">
             <div>Textures</div>
             <div class="creation__content__text__textures">
@@ -32,5 +32,7 @@
                     [class.selected]="currentTexture === i">
             </div>
         </div>
+
+        <div class="creation__content__btn" (click)="download()">Download your board</div>
     </div>
 </div>

@@ -31,15 +31,16 @@ swiper-slide {
   @include flex(center, center, row);
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .creation {
   @include flex(center, center, row);
   // width: 100%;
-  position: relative;
+
 
   &__content {
-    @include flex(center, center, column);
+    @include flex(center, flex-start, column);
     width: 100%;
     padding: 1%;
     box-sizing: border-box;
@@ -48,6 +49,23 @@ swiper-slide {
       padding: 1%;
       box-sizing: border-box;
       font-size: 1.25em;
+      margin-bottom: get-vh(20px);
+    }
+
+    &__btn {
+      margin-top: get-vh(70px);
+      border-radius: 10px;
+      border: 1px solid #212121;
+      padding: 5%;
+      box-sizing: border-box;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: #212121;
+        color: white;
+        cursor: pointer;
+      }
     }
 
     &__text {

@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, DestroyRef, ElementRef, Inject, Renderer2, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { timer } from 'rxjs';
 import { SwiperContainer } from 'swiper/element';
-import { BOARDS, SHAPES, COLORS, SURFBOARD_SHAPE, TEXTURES, CLIPATH } from '../../board';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { BOARDS, CLIPATH, COLORS, SHAPES, SURFBOARD_SHAPE, TEXTURES } from '../../board';
+import domtoimage from 'dom-to-image';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-right-panel',
@@ -83,6 +83,15 @@ export class RightPanelComponent implements AfterViewInit {
     }
 
     this.prevShapeIndex = this.currentShapeIndex;
+  }
+
+  public download() {
+    const node = document.querySelector('.surfboard') as any;
+
+    domtoimage.toBlob(node)
+      .then((blob) => {
+        saveAs(blob, 'my_surfboard.png');
+      });
   }
 }
 
