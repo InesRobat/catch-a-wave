@@ -16,7 +16,7 @@ export const BOARDS = [
 
 export const COLORS = [
     {
-        background: 'black'
+        background: '#212121'
     },
     {
         background: 'white'
@@ -170,16 +170,16 @@ export const SHAPES = [
 
 export const TEXTURES = [
     {
-        texture: './assets/images/le-pire.png'
+        texture: './assets/images/pexels-photo-1557238.jpeg'
     },
     {
-        texture: './assets/images/le-pire.png'
+        texture: './assets/images/pexels-photo-2387793.jpeg'
     },
     {
-        texture: './assets/images/le-pire.png'
+        texture: './assets/images/pexels-zaksheuskaya-709412-1561020.jpg'
     },
     {
-        texture: './assets/images/le-pire.png'
+        texture: './assets/images/texture.jpeg'
     },
 ]
 

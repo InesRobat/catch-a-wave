@@ -71,6 +71,8 @@ export class RightPanelComponent implements AfterViewInit {
     this.img.style.left = this.clipPath[this.currentShapeIndex!].left;
     this.img.style.top = this.clipPath[this.currentShapeIndex!].top;
     this.img.style.transform = this.clipPath[this.currentShapeIndex!].transform;
+    this.img.style.width = '200px';
+    this.img.style.height = '200px';
   }
 
   public selectShape(shape: HTMLOrSVGElement, index: number) {
