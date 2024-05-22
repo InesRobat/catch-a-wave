@@ -1,0 +1,64 @@
+@import './styles/utils';
+
+:host {
+    @include flex(center, center, row);
+    width: 100vw;
+    height: 60vh;
+    padding: 2% 5%;
+    box-sizing: border-box;
+
+    @media (min-width: 810px) and (max-width: 1199px),
+    (max-width: 809px) {
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+.txt {
+    @include flex(center, flex-start, column);
+    width: 50vw;
+    gap: 50px;
+
+    &__title {
+        font-size: 6em;
+        font-family: 'Indie Flower', cursive;
+        line-height: 1em;
+        width: 80%;
+    }
+
+    &__description {
+        font-size: 1em;
+        width: 60%;
+        line-height: 1.3em;
+    }
+
+    @media (min-width: 810px) and (max-width: 1199px),
+    (max-width: 809px) {
+        width: 100%;
+
+        &__title {
+            width: 100%;
+            margin-top: get-vh(40px);
+        }
+
+        &__description {
+            width: 100%;
+        }
+    }
+}
+
+.media {
+    @include flex(center, center, row);
+    width: get-vh(700px);
+    height: get-vh(900px);
+
+    img {
+        @include img(100%, 100%, cover, center);
+    }
+
+    @media (min-width: 810px) and (max-width: 1199px),
+    (max-width: 809px) {
+        width: 50%;
+        height: auto;
+    }
+}

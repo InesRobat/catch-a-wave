@@ -1,0 +1,15 @@
+<div class="title" id="creation">Salty Surfboard</div>
+<div class="desc">Get ready to unleash
+    your creativity and hit the surf with a board that reflects your style and personality. Let's get started!
+</div>
+
+<div class="collection">
+    <div class="collection__title">Collections</div>
+
+    <div class="collection__boards">
+        <div class="collection__boards__board" *ngFor="let item of collectionsBoards">
+            <img [src]="item.image" alt="">
+            <div>{{item.title}}</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+@import './styles/utils';
+
+:host {
+    @include flex(center, center, row);
+    width: 100vw;
+    height: 100vh;
+    padding: 2% 5%;
+    box-sizing: border-box;
+
+    @media (min-width: 810px) and (max-width: 1199px),
+    (max-width: 809px) {
+        flex-direction: column;
+    }
+}

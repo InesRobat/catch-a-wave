@@ -1,0 +1,57 @@
+@import './styles/utils';
+
+:host {
+  @include flex(center, flex-start, column);
+  width: 70%;
+  height: 100%;
+  // gap: 50px;
+
+  @media (min-width: 810px) and (max-width: 1199px),
+  (max-width: 809px) {
+    width: 100vw;
+  }
+}
+
+// .text {
+//   @include flex(center, flex-start, column);
+//   width: 100%;
+//   height: 100%;
+//   gap: 50px;
+
+.title {
+  font-size: 2.5em;
+  align-self: center;
+  text-transform: uppercase;
+  margin-bottom: get-vh(20px);
+}
+
+.desc {
+  font-size: 1em;
+  width: 80%;
+  margin-left: get-vh(20px);
+  margin-bottom: get-vh(20px);
+}
+
+.collection {
+  @include flex(center, flex-start, column);
+
+  &__title {
+    font-size: 1em;
+    margin-left: get-vh(20px);
+  }
+
+  &__boards {
+    @include flex(flex-end, flex-end, row);
+
+    &__board {
+      @include flex(center, center, row);
+      font-size: .75em;
+
+      img {
+        @include img(get-vh(50px), get-vh(50px), contain, center);
+      }
+    }
+  }
+}
+
+// }

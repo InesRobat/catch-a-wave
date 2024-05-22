@@ -1,0 +1,12 @@
+<div class="info-board" id="boards" *ngFor="let item of boards" #cards>
+    <div class="info-board__image">
+        <img [src]="item.image" alt="info-board">
+    </div>
+    <div class="info-board__header">
+        <div class="info-board__header__title">{{item.title}}</div>
+        <div class="info-board__header__shape">{{item.shape}}</div>
+    </div>
+    <div class="info-board__description">
+        <div class="info-board__description__text">{{item.description}}</div>
+    </div>
+</div>

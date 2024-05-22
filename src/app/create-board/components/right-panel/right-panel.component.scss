@@ -1,0 +1,105 @@
+@import './styles/utils';
+
+:host {
+  @include flex(center, center, row);
+  width: 30%;
+  height: 100%;
+  // background-color: $main-color;
+
+  @media (min-width: 810px) and (max-width: 1199px),
+  (max-width: 809px) {
+    width: 100vw;
+  }
+}
+
+swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-slide {
+  text-align: center;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.surfboard {
+  @include flex(center, center, row);
+  width: 100%;
+  height: 100%;
+}
+
+.creation {
+  @include flex(center, center, row);
+  width: 100%;
+  position: relative;
+
+  &__content {
+    @include flex(center, center, column);
+    width: 100%;
+    padding: 1%;
+    box-sizing: border-box;
+
+    &__title {
+      padding: 1%;
+      box-sizing: border-box;
+      font-size: 1.25em;
+    }
+
+    &__text {
+      @include flex(center, flex-start, column);
+      width: 100%;
+      gap: 10px;
+      padding: 2%;
+      box-sizing: border-box;
+      font-size: .75em;
+
+      &__colors,
+      &__shapes,
+      &__textures {
+        @include flex(center, center, row);
+        gap: 5px;
+
+        &__color {
+          width: get-vh(40px);
+          height: get-vh(40px);
+          border-radius: 100%;
+        }
+
+        &__shape,
+        &__texture {
+          width: get-vh(60px);
+          height: get-vh(60px);
+        }
+
+        &__shape,
+        &__texture,
+        &__color {
+          cursor: pointer;
+          transform: scale(1);
+          transition: all .3s ease-in-out;
+
+          &:hover,
+          &:focus,
+          &:active {
+            transform: scale(1.1);
+          }
+
+          &.selected {
+            border: 1px solid red;
+          }
+        }
+      }
+    }
+  }
+}
+
+.clipPathTexture {
+  clip-path: url(#label-pattern-svg-0);
+  position: absolute;
+  z-index: 1;
+  left: 8%;
+  top: 43%;
+}

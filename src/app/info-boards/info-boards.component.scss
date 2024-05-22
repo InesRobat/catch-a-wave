@@ -1,0 +1,84 @@
+@import './styles/utils';
+
+:host {
+    @include flex(center, center, row);
+    width: 100vw;
+    height: 100vh;
+    padding: 2% 5%;
+    box-sizing: border-box;
+    margin-top: get-vh(40px);
+
+    @media (min-width: 810px) and (max-width: 1199px),
+    (max-width: 809px) {
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+.info-board {
+    @include flex(center, center, column);
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: all .3s ease-in-out;
+    margin-top: get-vh(40px);
+    width: 100%;
+
+    &__image {
+        width: get-vh(300px);
+        height: get-vh(200px);
+        // background-color: $white;
+        // border-radius: 10px;
+        margin-bottom: 10px;
+        // box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+
+        img {
+            @include img(100%, 100%, contain, center);
+        }
+    }
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+
+    &__header {
+        @include flex(center, flex-start, column);
+        width: 100%;
+        gap: 5px;
+
+        &__title {
+            font-size: 2em;
+            font-weight: 700;
+            color: #f5d5a1;
+            transform: scale(1);
+            transition: all .3s ease-in-out;
+
+            &:hover,
+            &:focus {
+                transform: scale(1.05);
+            }
+        }
+
+
+        &__shape {
+            font-size: .75rem;
+            font-weight: 400;
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: get-vh(1px);
+            background-color: lightgrey;
+            margin-top: get-vh(5px);
+        }
+    }
+
+    &__description {
+        font-size: 1em;
+        margin-top: get-vh(20px);
+        line-height: 1.3em;
+    }
+}
