@@ -53,11 +53,13 @@ swiper-slide {
     }
 
     &__btn {
+      text-align: center;
       margin-top: get-vh(70px);
       border-radius: 10px;
       border: 1px solid #212121;
       padding: 5%;
       box-sizing: border-box;
+      font-size: 1em;
 
       &:hover,
       &:focus,
